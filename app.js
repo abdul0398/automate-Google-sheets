@@ -5,9 +5,9 @@ import main from "./main.js";
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-cron.schedule("0 0 * * 0", async () =>  {
-  await main();
-});
+// cron.schedule("0 0 * * 0", async () =>  {
+//   await main();
+// });
 
 
 app.listen(PORT, async () => {

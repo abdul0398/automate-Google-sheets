@@ -8,7 +8,7 @@ const httpsAgent = new https.Agent({
 
 async function changePassword(url, adminMail, appPassword, newpassword) {
   const secret = Buffer.from(`${adminMail}:${appPassword}`).toString("base64");
-  const URL = url.startsWith("http") ? url : `http://${url}`;
+  const URL = url.startsWith("http") ? url : `https://${url}`;
 
   try {
     const userData = await axios.get(URL + "/wp-json/wp/v2/users", {
@@ -42,7 +42,7 @@ async function changePassword(url, adminMail, appPassword, newpassword) {
     }
     return { success: true};
   } catch (error) {
-    console.error("Error during password change:", error);
+    console.error("Error during password change:", error.message);
     return { success: false, error: error.message };
   }
 }

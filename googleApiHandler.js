@@ -96,14 +96,14 @@ async function updateSheetWithNewPasswords(spreadsheetId, sheetName, obj) {
   try {
     // Prepare updated values array for Google Sheet
     const updatedValues = [
-      ["URL", "Username", "Email", "Password", "Admin Mail", "App Password"],
+      ["URL", "Username", "App Password", "Password", "Last Updated", "Error"],
       ...Object.entries(obj).map(([key, value]) => [
         key,
-        value.username,
-        value.email,
-        value.password,
         value.adminMail,
         value.appPassword,
+        value.password,
+        value.lastUpdated,
+        value.Error,
       ]),
     ];
 
