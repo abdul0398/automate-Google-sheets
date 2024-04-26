@@ -53,7 +53,7 @@ async function main() {
 
       console.log("Processing WordPress site: ", key);
 
-      const randomPassword = Math.random().toString(36).slice(-8);
+      const randomPassword = Array.from({length: 15}, () => "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]|;:,.<>?".charAt(Math.floor(Math.random() * "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]|;:,.<>?".length))).join('');
 
       console.log(
         "Random password generated for this site is: ",
